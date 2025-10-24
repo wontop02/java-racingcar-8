@@ -12,4 +12,7 @@ public class ErrorMessage {
 
     public static final String INVALID_NAME_LENGTH =
             "자동차 이름은 1자 이상, " + MAX_NAME_LENGTH + "자 이하로 입력해야 합니다.";
+
+    public static final String INVALID_NAME_FORMAT =
+            "자동차 이름은 영어로만 입력해야 합니다.";
 }
