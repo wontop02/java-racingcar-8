@@ -1,5 +1,6 @@
 package racingcar.constant;
 
+import static racingcar.constant.GameRule.MAX_ATTEMPT_COUNT;
 import static racingcar.constant.GameRule.MAX_CAR_COUNT;
 import static racingcar.constant.GameRule.MAX_NAME_LENGTH;
 import static racingcar.constant.GameRule.MIN_CAR_COUNT;
@@ -18,6 +19,6 @@ public class ErrorMessage {
     public static final String DUPLICATED_CAR_NAME =
             "자동차 이름은 중복될 수 없습니다.";
 
-    public static final String INVALID_ATTEMPT_COUNT_FORMAT =
-            "시도할 횟수는 정수로 입력해야 합니다.";
+    public static final String INVALID_ATTEMPT_COUNT =
+            "시도할 횟수는 1-" + MAX_ATTEMPT_COUNT + " 사이의 정수로 입력해야 합니다.";
 }

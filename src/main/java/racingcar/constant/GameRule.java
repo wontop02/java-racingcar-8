@@ -7,4 +7,6 @@ public final class GameRule {
     public static final int MAX_CAR_COUNT = 7;
 
     public static final int MAX_NAME_LENGTH = 5;
+
+    public static final int MAX_ATTEMPT_COUNT = 30;
 }
