@@ -6,12 +6,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.validator.InputValidator;
 
 public class RacingGameTest {
     @Test
     void 중복된_자동차_이름이_존재하면_예외가_발생한다() {
         List<String> carNames = List.of("pobi", "woni", "pobi");
-        assertThatThrownBy(() -> new RacingGame(carNames, 3))
+        assertThatThrownBy(() -> InputValidator.validateCarNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 중복될 수 없습니다.");
     }

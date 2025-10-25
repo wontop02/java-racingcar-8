@@ -1,12 +1,9 @@
 package racingcar.view;
 
-import static racingcar.constant.ErrorMessage.INVALID_ATTEMPT_COUNT;
-import static racingcar.constant.GameRule.MAX_ATTEMPT_COUNT;
 import static racingcar.constant.GameRule.MAX_CAR_COUNT;
 import static racingcar.constant.GameRule.MIN_CAR_COUNT;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.constant.ErrorMessage;
@@ -15,19 +12,24 @@ import racingcar.validator.InputValidator;
 public class InputView {
     private InputView() {}
 
-    public static String requestInput() {
-        return Console.readLine();
+    public static List<String> getCarNames() {
+        System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
+        return parseCarNames(Console.readLine());
     }
 
-    public static List<String> parseCarNames(String input) {
+    public static int getAttemptCount() {
+        System.out.println("시도할 횟수는 몇 회인가요?");
+        String input = Console.readLine();
+        return parseAttemptCount(input);
+    }
+
+    static List<String> parseCarNames(String input) {
         List<String> carNames = Arrays.asList(input.split(","));
-        if (carNames.size() < MIN_CAR_COUNT || carNames.size() > MAX_CAR_COUNT) {
-            throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_COUNT);
-        }
+        InputValidator.validateCarNames(carNames);
         return carNames;
     }
 
-    public static int parseAttemptCount(String input) {
+    static int parseAttemptCount(String input) {
         InputValidator.validateAttemptCount(input);
         return Integer.parseInt(input);
     }
