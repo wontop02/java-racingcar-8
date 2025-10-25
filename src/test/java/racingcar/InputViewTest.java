@@ -33,4 +33,12 @@ public class InputViewTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도할 횟수는 1-" + MAX_ATTEMPT_COUNT + " 사이의 정수로 입력해야 합니다.");
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "0", "31"})
+    void 시도할_횟수는_1_이상_max_이하가_아니면_예외가_발생한다(String input) {
+        assertThatThrownBy(() -> InputView.validateAttemptCountRange(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("시도할 횟수는 1-" + MAX_ATTEMPT_COUNT + " 사이의 정수로 입력해야 합니다.");
+    }
 }
