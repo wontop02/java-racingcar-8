@@ -1,6 +1,7 @@
 package racingcar.validator;
 
 import static racingcar.constant.ErrorMessage.DUPLICATED_CAR_NAME;
+import static racingcar.constant.ErrorMessage.INVALID_NAME_CONTAINS_SPACE;
 import static racingcar.constant.ErrorMessage.INVALID_NAME_FORMAT;
 import static racingcar.constant.ErrorMessage.INVALID_NAME_LENGTH;
 import static racingcar.constant.GameRule.MAX_CAR_COUNT;
@@ -15,9 +16,9 @@ public class CarValidator {
     private CarValidator() {}
 
     public static void validate(List<String> names) {
+        names.forEach(CarValidator::validateNameFormat);
         validateDuplicateNames(names);
         validateCarCount(names);
-        names.forEach(CarValidator::validateNameFormat);
     }
 
     static void validateDuplicateNames(List<String> names) {
@@ -33,8 +34,15 @@ public class CarValidator {
     }
 
     static void validateNameFormat(String name) {
-        validateNameLength(name);
+        validateNoSpace(name);
         validateNameIsEnglish(name);
+        validateNameLength(name);
+    }
+
+    static void validateNoSpace(String name) {
+        if (name.contains(" ")) {
+            throw new IllegalArgumentException(INVALID_NAME_CONTAINS_SPACE);
+        }
     }
 
     static void validateNameLength(String name) {
