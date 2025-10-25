@@ -13,6 +13,8 @@ import racingcar.constant.ErrorMessage;
 import racingcar.validator.InputValidator;
 
 public class InputView {
+    private InputView() {}
+
     public static String requestInput() {
         return Console.readLine();
     }
