@@ -21,7 +21,7 @@ public class InputView {
     }
 
     static List<String> parseCarNames(String input) {
-        List<String> carNames = Arrays.asList(input.split(","));
+        List<String> carNames = Arrays.asList(input.split(",", -1));
         CarValidator.validate(carNames);
         return carNames;
     }
