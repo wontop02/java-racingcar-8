@@ -10,6 +10,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 import racingcar.constant.ErrorMessage;
+import racingcar.validator.InputValidator;
 
 public class InputView {
     public static String requestInput() {
@@ -25,30 +26,7 @@ public class InputView {
     }
 
     public static int parseAttemptCount(String input) {
-        validateInteger(input);
-        validateIntRange(input);
-        validateAttemptCountRange(input);
+        InputValidator.validateAttemptCount(input);
         return Integer.parseInt(input);
-    }
-
-    public static void validateInteger(String input) {
-        if (!input.matches("^-?\\d+$")) {
-            throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT);
-        }
-    }
-
-    public static void validateIntRange(String input) {
-        BigInteger value = new BigInteger(input);
-        if (value.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
-                || value.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
-            throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT);
-        }
-    }
-
-    public static void validateAttemptCountRange(String input) {
-        int value = Integer.parseInt(input);
-        if (value < 1 || value > MAX_ATTEMPT_COUNT) {
-            throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT);
-        }
     }
 }
