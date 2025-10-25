@@ -17,4 +17,7 @@ public class ErrorMessage {
 
     public static final String DUPLICATED_CAR_NAME =
             "자동차 이름은 중복될 수 없습니다.";
+
+    public static final String INVALID_ATTEMPT_COUNT_FORMAT =
+            "시도할 횟수는 정수로 입력해야 합니다.";
 }

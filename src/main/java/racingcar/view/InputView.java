@@ -1,5 +1,6 @@
 package racingcar.view;
 
+import static racingcar.constant.ErrorMessage.INVALID_ATTEMPT_COUNT_FORMAT;
 import static racingcar.constant.GameRule.MAX_CAR_COUNT;
 import static racingcar.constant.GameRule.MIN_CAR_COUNT;
 
@@ -19,5 +20,12 @@ public class InputView {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_COUNT);
         }
         return carNames;
+    }
+
+    public static int parseAttemptCount(String input) {
+        if (!input.matches("^[0-9]*$")) {
+            throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT_FORMAT);
+        }
+        return Integer.parseInt(input);
     }
 }
