@@ -1,13 +1,10 @@
 package racingcar.view;
 
-import static racingcar.constant.GameRule.MAX_CAR_COUNT;
-import static racingcar.constant.GameRule.MIN_CAR_COUNT;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
-import racingcar.constant.ErrorMessage;
-import racingcar.validator.InputValidator;
+import racingcar.validator.CarValidator;
+import racingcar.validator.AttemptCountValidator;
 
 public class InputView {
     private InputView() {}
@@ -25,12 +22,12 @@ public class InputView {
 
     static List<String> parseCarNames(String input) {
         List<String> carNames = Arrays.asList(input.split(","));
-        InputValidator.validateCarNames(carNames);
+        CarValidator.validate(carNames);
         return carNames;
     }
 
     static int parseAttemptCount(String input) {
-        InputValidator.validateAttemptCount(input);
+        AttemptCountValidator.validate(input);
         return Integer.parseInt(input);
     }
 }
