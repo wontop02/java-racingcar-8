@@ -28,12 +28,14 @@ public class RacingGameTest {
     void 전진한_횟수가_가장_많은_자동차를_우승자로_선정한다() {
         Car pobi = new Car("pobi");
         Car woni = new Car("woni");
-        List<Car> cars = List.of(pobi, woni);
+        Car jun = new Car("jun");
+        List<Car> cars = List.of(pobi, woni, jun);
         RacingGame racingGame = new RacingGame(cars, 1);
         pobi.move(4);
         woni.move(1);
+        jun.move(4);
 
-        List<String> winners = List.of(pobi.name());
+        List<String> winners = List.of(pobi.name(), jun.name());
         assertEquals(winners, racingGame.decideWinners());
     }
 }
