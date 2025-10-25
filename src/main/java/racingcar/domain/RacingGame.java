@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RacingGame {
@@ -18,14 +17,6 @@ public class RacingGame {
         attemptCount--;
     }
 
-    int getAttemptCount() {
-        return attemptCount;
-    }
-
-    public boolean isFinished() {
-        return attemptCount <= 0;
-    }
-
     public List<String> decideWinners() {
         int maxPosition = cars.stream()
                 .mapToInt(Car::getPosition)
@@ -36,5 +27,17 @@ public class RacingGame {
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::name)
                 .toList();
+    }
+
+    public boolean isFinished() {
+        return attemptCount <= 0;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    int getAttemptCount() {
+        return attemptCount;
     }
 }

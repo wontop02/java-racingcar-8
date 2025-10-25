@@ -6,8 +6,10 @@ import racingcar.domain.Car;
 public class OutputView {
     private OutputView() {}
 
-    public static void printCarPosition(Car car) {
-        System.out.println(car.name() + " : " + "-".repeat(car.getPosition()));
+    public static void printCarPosition(List<Car> cars) {
+        cars.forEach(car ->
+                System.out.println(car.name() + " : " + "-".repeat(car.getPosition()))
+        );
     }
 
     public static void printWinners(List<String> winners) {
