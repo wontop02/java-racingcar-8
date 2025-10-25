@@ -19,25 +19,10 @@ public class InputViewTest {
                 .hasMessage("자동차는 " + min + "대 이상, " + max + "대 이하로 입력해야 합니다.");
     }
 
-    @Test
-    void 시도할_횟수는_정수가_아니면_예외가_발생한다() {
-        assertThatThrownBy(() -> InputView.validateInteger("1.5"))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도할 횟수는 1-" + MAX_ATTEMPT_COUNT + " 사이의 정수로 입력해야 합니다.");
-    }
-
     @ParameterizedTest
-    @ValueSource(strings = {"9999999999", "-9999999999"})
-    void 시도할_횟수는_int_범위를_벗어나면_예외가_발생한다(String input) {
-        assertThatThrownBy(() -> InputView.validateIntRange(input))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("시도할 횟수는 1-" + MAX_ATTEMPT_COUNT + " 사이의 정수로 입력해야 합니다.");
-    }
-
-    @ParameterizedTest
-    @ValueSource(strings = {"-1", "0", "31"})
-    void 시도할_횟수는_1_이상_max_이하가_아니면_예외가_발생한다(String input) {
-        assertThatThrownBy(() -> InputView.validateAttemptCountRange(input))
+    @ValueSource(strings = {"1.5", "9999999999", "-9999999999", "-1", "0", "31"})
+    void 시도할_횟수가_유효하지_않으면_예외가_발생한다(String input) {
+        assertThatThrownBy(() -> InputView.parseAttemptCount(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도할 횟수는 1-" + MAX_ATTEMPT_COUNT + " 사이의 정수로 입력해야 합니다.");
     }
