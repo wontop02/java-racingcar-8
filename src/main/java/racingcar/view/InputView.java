@@ -25,11 +25,20 @@ public class InputView {
 
     public static int parseAttemptCount(String input) {
         validateInteger(input);
+        validateIntRange(input);
         return Integer.parseInt(input);
     }
 
     public static void validateInteger(String input) {
         if (!input.matches("^-?\\d+$")) {
+            throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT);
+        }
+    }
+
+    public static void validateIntRange(String input) {
+        BigInteger value = new BigInteger(input);
+        if (value.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
+                || value.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
             throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT);
         }
     }
