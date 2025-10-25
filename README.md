@@ -84,12 +84,12 @@ jun : ---
   - [x] 자동차 이름이 중복될 경우 에러 발생
 
 ### 시도할 횟수 입력
-- [ ] 사용자에게 입력값 요청
-  - [ ] `camp.nextstep.edu.missionutils.Console`의 `readLine()` 활용
-- [ ] 문자열 검증: 잘못된 값일 경우 `IllegalArgumentException` 발생
-  - [ ] 입력값이 정수가 아닐 경우 에러 발생
-  - [ ] 입력값이 int 범위를 벗어날 경우 에러 발생
-  - [ ] 입력값이 1-30 사이가 아닐 경우 에러 발생
+- [x] 사용자에게 입력값 요청
+  - [x] `camp.nextstep.edu.missionutils.Console`의 `readLine()` 활용
+- [x] 문자열 검증: 잘못된 값일 경우 `IllegalArgumentException` 발생
+  - [x] 입력값이 정수가 아닐 경우 에러 발생
+  - [x] 입력값이 int 범위를 벗어날 경우 에러 발생
+  - [x] 입력값이 1-30 사이가 아닐 경우 에러 발생
 
 ### 자동차 전진 및 정지
 - [ ] `camp.nextstep.edu.missionutils.Randoms`의 `pickNumberInRange()` 활용해 0-9 사이의 정수 중 무작위 정수 한 개 추출
