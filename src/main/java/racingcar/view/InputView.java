@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import static racingcar.constant.ErrorMessage.INVALID_ATTEMPT_COUNT;
+import static racingcar.constant.GameRule.MAX_ATTEMPT_COUNT;
 import static racingcar.constant.GameRule.MAX_CAR_COUNT;
 import static racingcar.constant.GameRule.MIN_CAR_COUNT;
 
@@ -26,6 +27,7 @@ public class InputView {
     public static int parseAttemptCount(String input) {
         validateInteger(input);
         validateIntRange(input);
+        validateAttemptCountRange(input);
         return Integer.parseInt(input);
     }
 
@@ -39,6 +41,13 @@ public class InputView {
         BigInteger value = new BigInteger(input);
         if (value.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
                 || value.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+            throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT);
+        }
+    }
+
+    public static void validateAttemptCountRange(String input) {
+        int value = Integer.parseInt(input);
+        if (value < 1 || value > MAX_ATTEMPT_COUNT) {
             throw new IllegalArgumentException(INVALID_ATTEMPT_COUNT);
         }
     }
