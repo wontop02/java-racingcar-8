@@ -8,9 +8,9 @@ public class Car {
     private final String name;
 
     public Car(String name) {
-        this.name = name;
         validateNameLength(name);
         validateNameIsEnglish(name);
+        this.name = name;
     }
 
     public void validateNameLength(String name) {
