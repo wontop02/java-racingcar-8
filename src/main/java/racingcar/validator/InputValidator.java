@@ -6,6 +6,8 @@ import static racingcar.constant.GameRule.MAX_ATTEMPT_COUNT;
 import java.math.BigInteger;
 
 public class InputValidator {
+    private InputValidator() {}
+
     public static void validateAttemptCount(String input) {
         validateInteger(input);
         validateWithinIntRange(input);
