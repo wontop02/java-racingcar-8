@@ -36,4 +36,11 @@ public class RacingGame {
     int getAttemptCount() {
         return attemptCount;
     }
+
+    public boolean isFinished() {
+        if (attemptCount <= 0) {
+            return true;
+        }
+        return false;
+    }
 }
