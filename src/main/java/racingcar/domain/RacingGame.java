@@ -28,9 +28,6 @@ public class RacingGame {
     }
 
     public boolean isFinished() {
-        if (attemptCount <= 0) {
-            return true;
-        }
-        return false;
+        return attemptCount <= 0;
     }
 }
