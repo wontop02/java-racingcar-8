@@ -28,4 +28,13 @@ public class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 영어로만 입력해야 합니다.");
     }
+
+    @Test
+    void 자동차는_무작위_값이_4_이상일_경우에만_전진한다() {
+        Car car = new Car("pobi");
+        car.move(3);
+        assertEquals(car.getPosition(), 0);
+        car.move(4);
+        assertEquals(car.getPosition(), 1);
+    }
 }
