@@ -20,8 +20,8 @@ public class InputViewTest {
     }
 
     @Test
-    void 시도할_횟수는_숫자를_제외한_문자가_포함되면_예외가_발생한다() {
-        assertThatThrownBy(() -> InputView.parseAttemptCount("1.5"))
+    void 시도할_횟수는_정수가_아니면_예외가_발생한다() {
+        assertThatThrownBy(() -> InputView.validateInteger("1.5"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("시도할 횟수는 1-" + MAX_ATTEMPT_COUNT + " 사이의 정수로 입력해야 합니다.");
     }
