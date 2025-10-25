@@ -17,11 +17,11 @@ public class CarValidator {
 
     public static void validate(List<String> names) {
         names.forEach(CarValidator::validateNameFormat);
-        validateDuplicateNames(names);
+        validateNoDuplicateNames(names);
         validateCarCount(names);
     }
 
-    static void validateDuplicateNames(List<String> names) {
+    static void validateNoDuplicateNames(List<String> names) {
         if (names.size() != new HashSet<>(names).size()) {
             throw new IllegalArgumentException(DUPLICATED_CAR_NAME);
         }

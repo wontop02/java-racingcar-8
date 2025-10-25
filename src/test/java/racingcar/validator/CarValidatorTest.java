@@ -11,7 +11,7 @@ public class CarValidatorTest {
     @Test
     void 중복된_자동차_이름이_존재하면_예외가_발생한다() {
         List<String> carNames = List.of("pobi", "woni", "pobi");
-        assertThatThrownBy(() -> CarValidator.validateDuplicateNames(carNames))
+        assertThatThrownBy(() -> CarValidator.validateNoDuplicateNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("자동차 이름은 중복될 수 없습니다.");
     }
