@@ -33,7 +33,7 @@ public class RacingGameTest {
         pobi.move(4);
         woni.move(1);
 
-        List<String> winners = List.of(pobi.getName());
+        List<String> winners = List.of(pobi.name());
         assertEquals(winners, racingGame.decideWinners());
     }
 }
