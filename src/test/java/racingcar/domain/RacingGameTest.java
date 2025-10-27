@@ -12,7 +12,7 @@ public class RacingGameTest {
         List<Car> cars = List.of(new Car("pobi"), new Car("woni"));
         RacingGame racingGame = new RacingGame(cars, 3);
         racingGame.moveCars();
-        assertEquals(racingGame.getAttemptCount(), 2);
+        assertEquals(2, racingGame.getAttemptCount());
     }
 
     @Test
