@@ -15,11 +15,19 @@ public class Car {
         }
     }
 
-    public int getPosition() {
-        return position;
+    public boolean isMaxPosition(int maxPosition) {
+        return position == maxPosition;
+    }
+
+    public String drawPosition() {
+        return "-".repeat(position);
     }
 
     public String name() {
         return name;
+    }
+
+    int position() {
+        return position;
     }
 }
