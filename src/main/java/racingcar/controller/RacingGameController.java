@@ -25,7 +25,7 @@ public class RacingGameController {
 
     public void playOneRound(RacingGame racingGame) {
         racingGame.moveCars();
-        OutputView.printCarPosition(racingGame.getCars());
+        OutputView.printCarPosition(racingGame.snapshot());
         System.out.println();
     }
 }
