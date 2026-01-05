@@ -22,6 +22,7 @@ public class RacingCarController {
         List<RacingCar> cars = makeCars();
         int tryCount = readTryCount();
         moveCars(cars, tryCount);
+        outputView.printWinners(racingCarService.findWinnerNames(cars));
     }
 
     private List<RacingCar> makeCars() {

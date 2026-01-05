@@ -22,4 +22,24 @@ public class RacingCarService {
         int random = pickNumberInRange(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
         car.move(random);
     }
+
+    public List<String> findWinnerNames(List<RacingCar> cars) {
+        int maxLocation = findMaxLocation(cars);
+        List<RacingCar> winners = cars.stream()
+                .filter(c -> c.getLocation() == maxLocation)
+                .toList();
+        return winners.stream()
+                .map(RacingCar::getName)
+                .toList();
+    }
+
+    private int findMaxLocation(List<RacingCar> cars) {
+        int maxLocation = 0;
+        for (RacingCar car : cars) {
+            if (car.getLocation() > maxLocation) {
+                maxLocation = car.getLocation();
+            }
+        }
+        return maxLocation;
+    }
 }
